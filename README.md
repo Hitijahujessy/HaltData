@@ -2,8 +2,9 @@
 Visualise data of juvenile criminal offenses from Dutch government data website.
 
 ## Description
-HaltData is a group project for school that shows data of juvenile criminal offenses in the Netherlands over a span of a couple of years.
+HaltData is a group project for school that shows data of juvenile criminal offenses in the Netherlands over the span of a couple of years.
 
+### The assignment
 The assignment was for us to choose a subject on the website of the Dutch government that piqued our interest and visualise it's data using a programming language or a data-analyis tool of our choice. We ended up choosing criminality of males and females aged 12-18. As programming language we chose to use Python.
 
 This was supposed to be a small project so we chose to keep the data simple. The user can choose to view three graphs: amount of offenses by males, by females and a comparison between the two, all shown on a year-to-year basis.
