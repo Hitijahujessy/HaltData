@@ -79,7 +79,16 @@ class Main():
         fig.autofmt_xdate(rotation=45)
         # For items in colors and data in dict, make their own plot
         for colors in self.graph_data:
-            ax.plot(self.graph_data[colors][0], self.graph_data[colors][1], c=colors)
+            line, = ax.plot(self.graph_data[colors][0], self.graph_data[colors][1], c=colors)
+            if colors == 'red':
+                line.set_label("Jongens")
+                ax.legend()
+            if colors == 'blue':
+                line.set_label("Meiden")
+                ax.legend()
+            if colors == 'green':
+                line.set_label("Totaal")
+                ax.legend()
         ax.set_ybound(0, 25000)
 
         canvas = FigureCanvasTkAgg(fig, master=self.root)
