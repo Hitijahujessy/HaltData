@@ -6,6 +6,7 @@ from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
 import webbrowser
 from api_response import lets_try
 from threading import Thread
+import matplotlib.pyplot as plt
 
 """
 This file has a small change within the plot function 
@@ -37,12 +38,12 @@ class Main():
 
         # Create 3 buttons in the top row
         button = Button(
-            text="men", command=lambda: self.plot(-1, "red"))
+            text="Jongens", command=lambda: self.plot(-1, "red"))
         button.grid(row=0, column=0)
-        button = Button(text="women",
+        button = Button(text="Meiden",
                         command=lambda: self.plot(1, "blue"))
         button.grid(row=0, column=1)
-        button = Button(text="total",
+        button = Button(text="Totaal",
                         command=lambda: self.plot(0, "green"))
         button.grid(row=0, column=2)
 
@@ -68,12 +69,14 @@ class Main():
                 self.graph_data[color] = x, y
                 self.api_response[color] = x, y
         fig = Figure(figsize=(7, 5), dpi=100)
+        plt.style.use('seaborn-v0_8')
         ax = fig.add_subplot(111)
-        ax.set_title("Delicten jongeren 12 tot 18 jaar", fontsize=12)
-        ax.set_xlabel("Periode", fontsize=8)
-        ax.set_ylabel("Totaal delicten", fontsize=8)
-        ax.tick_params(axis='x', labelsize=6)
-        ax.tick_params(axis='y', labelsize=12)
+        ax.set_title("Delicten jongeren 12 tot 18 jaar", fontsize=16)
+        ax.set_xlabel("Periode", fontsize=12)
+        ax.set_ylabel("Totaal delicten", fontsize=12)
+        ax.tick_params(axis='x', labelsize=8)
+        ax.tick_params(axis='y', labelsize=10)
+        fig.autofmt_xdate(rotation=45)
         # For items in colors and data in dict, make their own plot
         for colors in self.graph_data:
             ax.plot(self.graph_data[colors][0], self.graph_data[colors][1], c=colors)
